@@ -10,8 +10,8 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static('dist'));
+const fetch = require('node-fetch');
 
-const url = `http://api.geonames.org/searchJSON?formatted=true&q=tirur&maxRows=10&lang=es&username=samrood&style=full`
 
 
 //server listening at port 8000
@@ -38,5 +38,18 @@ let location;
 //post requests
 app.post('/postLocation', async(req, res) => {
     location = req.body.location;
-    console.log(location);
+    await getLatLong(location);
 })
+
+async function getLatLong(location) {
+    console.log("this is ", location)
+    const url =
+        `http://api.geonames.org/searchJSON?formatted=true&q=${location}&maxRows=10&lang=es&username=samrood&style=full`;
+    const data = await fetch(url)
+    consoler(data)
+
+}
+
+function consoler(data) {
+    console.log(data)
+}
