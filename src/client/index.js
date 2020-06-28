@@ -1,6 +1,6 @@
 // importing functions
 import { submitBtn } from '../client/js/app.js'
-import { getCoordinates } from './js/requests'
+import { getCoordinates } from '../client/js/requests'
 const submitButton = document.getElementById('submit');
 submitButton.addEventListener('click', (event) => {
     event.preventDefault();
