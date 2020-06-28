@@ -1,8 +1,15 @@
 var path = require('path')
 const express = require('express')
 const mockAPIResponse = require('./mockAPI.js')
-
 const app = express()
+const dotenv = require('dotenv');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+
+dotenv.config()
+app.use(cors())
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json());
 
 app.use(express.static('dist'))
 
