@@ -18,6 +18,8 @@ app.listen(8000, function() {
 })
 
 
+//get requests
+
 
 
 
@@ -29,4 +31,9 @@ app.get('/', function(req, res) {
 
 app.get('/test', function(req, res) {
     res.send(mockAPIResponse)
+})
+
+//post requests
+app.post('/postLocation', (req, res) => {
+    console.log(req.body.location)
 })
