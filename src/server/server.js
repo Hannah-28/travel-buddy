@@ -34,22 +34,21 @@ app.get('/', function(req, res) {
 app.get('/test', function(req, res) {
     res.send(mockAPIResponse)
 })
-let location;
+
+
 //post requests
 app.post('/postLocation', async(req, res) => {
+    let location;
     location = req.body.location;
-    await getLatLong(location);
-})
+    const data = await getLatLong(location);
+    console.log(data);
+});
 
+//calling geoname
 async function getLatLong(location) {
-    console.log("this is ", location)
-    const url =
-        `http://api.geonames.org/searchJSON?formatted=true&q=${location}&maxRows=10&lang=es&username=samrood&style=full`;
-    const data = await fetch(url)
-    consoler(data)
-
-}
-
-function consoler(data) {
-    console.log(data)
+    console.log("this is ", location);
+    const url = `http://api.geonames.org/searchJSON?formatted=true&q=${location}&maxRows=10&lang=es&username=samrood&style=full`;
+    const data = await fetch(url);
+    console.log(data);
+    return data.json();
 }
