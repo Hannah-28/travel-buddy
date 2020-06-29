@@ -8,7 +8,6 @@ async function getCoordinates(location) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ location: location })
     });
-    // console.log(postData);
 }
 
 export {

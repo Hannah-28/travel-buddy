@@ -7,12 +7,12 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 dotenv.config();
 app.use(cors());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static('dist'));
 const fetch = require('node-fetch');
-
-
+// empty projectData
+projectData = {}
 
 //server listening at port 8000
 app.listen(8000, function() {
@@ -40,15 +40,24 @@ app.get('/test', function(req, res) {
 app.post('/postLocation', async(req, res) => {
     let location;
     location = req.body.location;
-    const data = await getLatLong(location);
-    console.log(data);
+    const coordinates = await getLatLong(location);
+    const longitude = coordinates.geonames[0].lng;
+    const latitude = coordinates.geonames[0].lat;
+    console.log(latitude, longitude);
+    const weatherInfo = await getCurrentWeatherInfo(latitude, longitude);
+    const temperature = weatherInfo.data[0].temp
+    console.log(temperature);
 });
 
 //calling geoname
 async function getLatLong(location) {
-    console.log("this is ", location);
     const url = `http://api.geonames.org/searchJSON?formatted=true&q=${location}&maxRows=10&lang=es&username=samrood&style=full`;
     const data = await fetch(url);
-    console.log(data);
+    return data.json();
+}
+// calling weatherbit to get curent weatherInfo
+async function getCurrentWeatherInfo(lat, long) {
+    const url = `https://api.weatherbit.io/v2.0/current?lat=${lat}&lon=${long}&key=7ced570754844545b5ecaf5b7cf625f7`
+    const data = await fetch(url);
     return data.json();
 }
