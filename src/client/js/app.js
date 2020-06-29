@@ -1,5 +1,5 @@
 // global variables
-
+const dateDiff = require("date-range-diff");
 
 // getting inputs
 async function submitBtn() {
@@ -9,18 +9,14 @@ async function submitBtn() {
     const endDate = document.getElementById('end-date').value;
     //sending location data to requests.js
     const data = await getWeatherInfo(location);
-    Client.weatherUpdates(data, '20');
-    const triplength = tripLength(travelDate, endDate);
+    //dateDiff is from the date-range-diff package
+    Client.weatherUpdates(data, travelDuration(travelDate, endDate));
 }
 
-
-//Functions to process data
-function tripLength(date1, date2) {
-    console.log(date1.getDate());
-    var date1 = new Date(date2);
-    var date2 = new Date(date1);
-    var diffDays = date2.getDate() - date1.getDate();
-    alert(diffDays)
+//function to calculate trip duration
+function travelDuration(travelDate, endDate) {
+    //dateDiff is from the date-range-diff package
+    return dateDiff(endDate, travelDate);
 }
 
 
