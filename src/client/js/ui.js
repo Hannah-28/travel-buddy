@@ -1,10 +1,11 @@
 // functions to handle ui changes
 function uiUpdates(data) {
     const weatherInfo = document.getElementById('weather');
-    // weatherInfo.textContent = `Weather :
-    // Temperature = ${data.weatherInfo.}
-
-    // `
+    console.log(data);
+    weatherInfo.textContent = `Weather :
+        Temperature = ${data.data[0].temp}
+        Description = ${data.data[0].weather.description}
+        Sunset = ${data.data[0].city_name} `
 }
 export {
     uiUpdates

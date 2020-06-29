@@ -44,7 +44,7 @@ app.post('/postLocation', async(req, res) => {
     projectData.latitude = coordinates.geonames[0].lng;
     projectData.longitude = coordinates.geonames[0].lat;
     projectData.weatherInfo = await getCurrentWeatherInfo(projectData.latitude, projectData.longitude);
-    res.send(JSON.stringify(projectData))
+    res.send(JSON.stringify(projectData.weatherInfo))
 });
 
 //calling geoname
