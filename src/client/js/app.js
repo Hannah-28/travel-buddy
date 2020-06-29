@@ -10,13 +10,14 @@ async function submitBtn() {
     console.log(endDate);
     //sending location data to requests.js
     const data = await getWeatherInfo(location);
-    Client.uiUpdates(data);
+    // const triplength = tripLength(travelDate, endDate);
+    Client.weatherUpdates(data, '20');
 }
 
 
 //Functions to process data
 function tripLength(travelDate, endDate) {
-    return endDate - travelDate;
+    return '10';
 }
 
 //request Functions
