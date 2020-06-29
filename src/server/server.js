@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 app.use(express.static('dist'));
 const fetch = require('node-fetch');
 // empty projectData
-projectData = {}
+let projectData = {}
 
 //server listening at port 8000
 app.listen(8000, function() {
@@ -41,12 +41,10 @@ app.post('/postLocation', async(req, res) => {
     let location;
     location = req.body.location;
     const coordinates = await getLatLong(location);
-    const longitude = coordinates.geonames[0].lng;
-    const latitude = coordinates.geonames[0].lat;
-    console.log(latitude, longitude);
-    const weatherInfo = await getCurrentWeatherInfo(latitude, longitude);
-    const temperature = weatherInfo.data[0].temp
-    console.log(temperature);
+    projectData.latitude = coordinates.geonames[0].lng;
+    projectData.longitude = coordinates.geonames[0].lat;
+    projectData.weatherInfo = await getCurrentWeatherInfo(projectData.latitude, projectData.longitude);
+    res.send(JSON.stringify(projectData))
 });
 
 //calling geoname

@@ -1,12 +1,12 @@
 // importing functions
 import { submitBtn } from '../client/js/app.js'
-import { getCoordinates } from '../client/js/requests'
+import { uiUpdates } from "./js/ui.js"
+
 const submitButton = document.getElementById('submit');
 submitButton.addEventListener('click', (event) => {
     event.preventDefault();
     submitBtn();
 })
-
 
 // importing style sheets
 import "./styles/resets.scss";
@@ -17,5 +17,5 @@ import "./styles/header.scss";
 
 export {
     submitBtn,
-    getCoordinates
+    uiUpdates
 }
