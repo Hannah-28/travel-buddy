@@ -5,7 +5,7 @@ function uiUpdates(data) {
     weatherInfo.textContent = `Weather :
         Temperature = ${data.data[0].temp}
         Description = ${data.data[0].weather.description}
-        Sunset = ${data.data[0].city_name} `
+        Sunset = ${data.data[0].sunset} `
 }
 export {
     uiUpdates
