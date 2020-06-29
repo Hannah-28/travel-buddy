@@ -21,10 +21,6 @@ app.listen(8000, function() {
 
 
 //get requests
-
-
-
-
 app.get('/', function(req, res) {
         res.sendFile(path.resolve('dist/index.html'))
     })
@@ -41,6 +37,7 @@ app.post('/postLocation', async(req, res) => {
     let location;
     location = req.body.location;
     const coordinates = await getLatLong(location);
+    console.log(typeof coordinates)
     projectData.longitude = coordinates.geonames[0].lng;
     projectData.latitude = coordinates.geonames[0].lat;
     projectData.weatherInfo = await getCurrentWeatherInfo(projectData.latitude, projectData.longitude);
@@ -59,3 +56,4 @@ async function getCurrentWeatherInfo(lat, long) {
     const data = await fetch(url);
     return data.json();
 }
+module.exports = getLatLong;

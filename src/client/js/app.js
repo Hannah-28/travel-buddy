@@ -15,7 +15,8 @@ async function submitBtn() {
 
 //function to calculate trip duration
 function travelDuration(travelDate, endDate) {
-    //dateDiff is from the date-range-diff package
+    console.log(travelDate, endDate)
+        //dateDiff is from the date-range-diff package
     return dateDiff(endDate, travelDate);
 }
 
@@ -39,4 +40,5 @@ async function getWeatherInfo(location) {
 
 export {
     submitBtn,
+    travelDuration
 }
