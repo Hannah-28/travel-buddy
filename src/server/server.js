@@ -1,11 +1,11 @@
 var path = require('path');
 const express = require('express');
-const mockAPIResponse = require('./mockAPI.js');
 const app = express();
 const dotenv = require('dotenv');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 dotenv.config();
+require("babel-polyfill");
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -15,9 +15,14 @@ const fetch = require('node-fetch');
 let projectData = {}
 
 //server listening at port 8000
-app.listen(8000, function() {
-    console.log('Example app listening on port 8000!')
+const port = 8001;
+app.listen(8001, () => {
+    console.log(`Example app listening on port $ { port }!`)
 })
+
+function listener(port) {
+    return `Example app listening on port $ { port }!`
+}
 
 
 //get requests
@@ -25,11 +30,6 @@ app.get('/', function(req, res) {
         res.sendFile(path.resolve('dist/index.html'))
     })
     // designates what port the app will listen to for incoming requests
-
-
-app.get('/test', function(req, res) {
-    res.send(mockAPIResponse)
-})
 
 
 //post requests
@@ -41,12 +41,14 @@ app.post('/postLocation', async(req, res) => {
     projectData.longitude = coordinates.geonames[0].lng;
     projectData.latitude = coordinates.geonames[0].lat;
     projectData.weatherInfo = await getCurrentWeatherInfo(projectData.latitude, projectData.longitude);
-    res.send(JSON.stringify(projectData.weatherInfo))
+    projectData.pictureData = await getPicture(location);
+    res.send(JSON.stringify({ weatherInfo: projectData.weatherInfo, picture: projectData.pictureData }))
 });
-
-//calling geoname
+console.log(process.env.API_KEY)
+    //calling geoname
 async function getLatLong(location) {
-    const url = `http://api.geonames.org/searchJSON?formatted=true&q=${location}&maxRows=10&lang=es&username=samrood&style=full`;
+    const url = `
+                    http: //api.geonames.org/searchJSON?formatted=true&q=${location}&maxRows=10&lang=es&username=samrood&style=full`;
     const data = await fetch(url);
     return data.json();
 }
@@ -56,4 +58,16 @@ async function getCurrentWeatherInfo(lat, long) {
     const data = await fetch(url);
     return data.json();
 }
-module.exports = getLatLong;
+//getting picture from pixabay
+async function getPicture(location) {
+    const url = `https://pixabay.com/api/?key=17243686-10b27a8ad9736dc58b0218f0e&q=${location}&category=places&image_type=photo&pretty=true`
+    const data = await fetch(url);
+    return data.json();
+}
+app.get("/servertest", function(req, res) {
+    res.json({
+        status: 200,
+    });
+});
+
+module.exports = app;

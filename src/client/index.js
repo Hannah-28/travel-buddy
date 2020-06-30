@@ -1,6 +1,6 @@
 // importing functions
 import { submitBtn } from '../client/js/app.js'
-import { weatherUpdates } from "./js/ui.js"
+import { weatherUpdates, pictureUpdate } from "./js/ui.js"
 
 const submitButton = document.getElementById('submit');
 submitButton.addEventListener('click', (event) => {
@@ -17,5 +17,6 @@ import "./styles/header.scss";
 
 export {
     submitBtn,
-    weatherUpdates
+    weatherUpdates,
+    pictureUpdate
 }

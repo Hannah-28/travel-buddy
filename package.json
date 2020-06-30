@@ -4,6 +4,7 @@
     "main": "index.js",
     "scripts": {
         "test": "jest",
+        "test-clean": "jest --clearCache",
         "start": "node src/server/server.js",
         "dev": "webpack-dev-server  --config webpack.dev.js --open",
         "prod": "webpack --config webpack.prod.js && nodemon src/server/server.js"
@@ -13,6 +14,7 @@
     "license": "ISC",
     "description": "",
     "dependencies": {
+        "babel-polyfill": "^6.26.0",
         "body-parser": "^1.19.0",
         "cors": "^2.8.5",
         "date-range-diff": "^1.0.0",
@@ -35,6 +37,7 @@
         "optimize-css-assets-webpack-plugin": "^5.0.3",
         "sass-loader": "^8.0.2",
         "style-loader": "^1.2.1",
+        "supertest": "^4.0.2",
         "terser-webpack-plugin": "^3.0.6",
         "webpack-dev-server": "^3.11.0"
     }

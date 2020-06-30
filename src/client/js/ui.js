@@ -10,6 +10,11 @@ function weatherUpdates(data, tripLength) {
     triplength.textContent = `trip length : ${tripLength}`
 }
 
+function pictureUpdate(pictureData) {
+    const image = document.getElementById('image');
+    image.src = pictureData.hits[0].userImageURL;
+}
 export {
-    weatherUpdates
+    weatherUpdates,
+    pictureUpdate
 }

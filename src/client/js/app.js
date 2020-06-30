@@ -9,8 +9,11 @@ async function submitBtn() {
     const endDate = document.getElementById('end-date').value;
     //sending location data to requests.js
     const data = await getWeatherInfo(location);
+    const weatherData = data.weatherInfo;
+    const picture = data.picture;
     //dateDiff is from the date-range-diff package
-    Client.weatherUpdates(data, travelDuration(travelDate, endDate));
+    Client.weatherUpdates(weatherData, travelDuration(travelDate, endDate));
+    Client.pictureUpdate(picture);
 }
 
 //function to calculate trip duration
@@ -23,9 +26,8 @@ function travelDuration(travelDate, endDate) {
 
 
 //request Functions
-
 async function getWeatherInfo(location) {
-    const postData = await fetch("http://localhost:8000/postLocation", {
+    const postData = await fetch("http://localhost:8001/postLocation", {
         method: 'Post',
         credentials: 'same-origin',
         headers: {
@@ -37,6 +39,8 @@ async function getWeatherInfo(location) {
     });
     return postData.json();
 }
+
+//exports
 
 export {
     submitBtn,
