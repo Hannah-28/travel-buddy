@@ -4,11 +4,33 @@ header {
     padding: 10px 40px;
 }
 
+body {
+    margin: 0;
+}
+
+input {
+    padding: 2rem;
+    display: block;
+    height: 60px;
+    width: 320px;
+    color: #f0d43a;
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+    border: none;
+    width: 100%;
+}
+
+:hover {
+    color: red;
+}
+
 .header {
     background-color: #fa1616;
+    color: white;
 }
 
 #app {
+    font-size: 2rem;
     max-height: 100vh;
     background-color: #12cad6;
 }
