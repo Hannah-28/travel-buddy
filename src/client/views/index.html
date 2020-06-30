@@ -17,15 +17,16 @@
             <div id="overview">
                 <h2 id="trip-caption">Trip Caption</h2>
                 <div class="photo">
-                    <img src="https://picsum.photos/seed/picsum/300/300" alt="" id="image">
+                    <img src="https://picsum.photos/seed/picsum/300/300" alt="pixabay image" id="image">
                 </div>
             </div>
             <div id="travel-info">
-                <h2 id="trip-head">My trip to :</h2>
-                <h2 id="depart">Departing on:</h2>
-                <h2 id="weather">Typical weather for then is:</h2>
-                <h2 id="sunset">Sunset time:</h2>
-                <h2 id="weather-description">Typical weather for then is</h2>
+                <h2 id="trip-head"></h2>
+                <h2 id="depart"></h2>
+                <h2 id="weather"></h2>
+                <h2 id="sunset"></h2>
+                <h2 id="triplength"></h2>
+                <h2 id="weather-description"></h2>
             </div>
             <div id=form>
                 <form>
@@ -40,9 +41,17 @@
             </div>
         </div>
         <footer id="footer">
-
         </footer>
     </main>
+    <script>
+        // Check that service workers are supported
+        if ('serviceWorker' in navigator) {
+            // Use the window load event to keep the page load performant
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js');
+            });
+        }
+    </script>
 </body>
 
 </html>

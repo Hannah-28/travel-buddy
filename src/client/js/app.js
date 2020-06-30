@@ -12,7 +12,7 @@ async function submitBtn() {
     const weatherData = data.weatherInfo;
     const picture = data.picture;
     //dateDiff is from the date-range-diff package
-    Client.weatherUpdates(weatherData, travelDuration(travelDate, endDate));
+    Client.weatherUpdates(weatherData, travelDuration(travelDate, endDate), location);
     Client.pictureUpdate(picture);
 }
 
