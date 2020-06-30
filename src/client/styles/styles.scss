@@ -1,31 +1,34 @@
-header {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 40px;
-}
-
+//body general styles
 body {
     margin: 0;
+    font-family: fantasy;
+    max-height: 100vh;
 }
 
-input {
-    padding: 2rem;
-    font-family: 'Oswald', sans-serif;
-    width: 80%;
-    margin: 1rem;
-}
-
-:hover {
-    color: red;
-}
-
-.header {
-    background-color: #fa1616;
-    color: white;
+// header styling
+header {
+    height: 25vh;
+    font-size: 2rem;
+    margin-left: 2rem;
 }
 
 #app {
-    font-size: 2rem;
-    max-height: 100vh;
-    background-color: #12cad6;
+    background-color: #FFB6C1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "left right";
+}
+
+#overview {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+#display {
+    text-align: center;
+}
+
+#footer {
+    height: 5vh;
 }
