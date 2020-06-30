@@ -7,22 +7,41 @@ body {
 
 // header styling
 header {
-    height: 25vh;
+    height: 15vh;
     font-size: 2rem;
     margin-left: 2rem;
 }
 
 #app {
-    background-color: #FFB6C1;
+    height: 70vh;
+    max-height: 70vh;
+    background-color: #faeee7;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "left right";
-}
-
-#overview {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
+    #overview {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        div {
+            text-align: center;
+            margin-top: 0.5rem;
+        }
+        h2 {
+            font-size: 3rem;
+            color: #0a97b0;
+        }
+    }
+    #travel-info {
+        visibility: hidden;
+        position: absolute;
+        h2 {
+            font-size: 2rem;
+        }
+    }
+    #form {
+        // visibility: hidden;
+    }
 }
 
 #display {
