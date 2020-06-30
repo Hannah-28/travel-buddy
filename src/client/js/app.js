@@ -23,8 +23,6 @@ function travelDuration(travelDate, endDate) {
     return dateDiff(endDate, travelDate);
 }
 
-
-
 //request Functions
 async function getWeatherInfo(location) {
     const postData = await fetch("http://localhost:8001/postLocation", {
