@@ -17,7 +17,7 @@ let projectData = {}
 //server listening at port 8000
 const port = 8001;
 app.listen(8001, () => {
-    console.log(`Example app listening on port $ { port }!`)
+    console.log(`Example app listening on port ${port}!`)
 })
 
 function listener(port) {
@@ -37,7 +37,6 @@ app.post('/postLocation', async(req, res) => {
     let location;
     location = req.body.location;
     const coordinates = await getLatLong(location);
-    console.log(typeof coordinates)
     projectData.longitude = coordinates.geonames[0].lng;
     projectData.latitude = coordinates.geonames[0].lat;
     projectData.weatherInfo = await getCurrentWeatherInfo(projectData.latitude, projectData.longitude);
@@ -47,8 +46,7 @@ app.post('/postLocation', async(req, res) => {
 console.log(process.env.API_KEY)
     //calling geoname
 async function getLatLong(location) {
-    const url = `
-                    http: //api.geonames.org/searchJSON?formatted=true&q=${location}&maxRows=10&lang=es&username=samrood&style=full`;
+    const url = `http://api.geonames.org/searchJSON?formatted=true&q=${location}&maxRows=10&lang=es&username=samrood&style=full`;
     const data = await fetch(url);
     return data.json();
 }
