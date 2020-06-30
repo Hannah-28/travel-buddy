@@ -9,7 +9,6 @@ submitButton.addEventListener('click', (event) => {
 })
 
 // importing style sheets
-import "./styles/resets.scss";
 import './styles/styles.scss'
 
 export {

@@ -8,23 +8,30 @@
 </head>
 
 <body>
+    <header class="header">
+        <h1>TRAVEL BUDDY</h1>
+    </header>
     <main>
-        <form action="">
-            <h3>TRAVEL BUDDY</h3>
-            <label for="location">Enter your destination></label>
-            <input type="text" id="location" name="destination" value="" placeholder="Enter your destination">
-            <label for="tripdate">Enter travel date</label>
-            <input type="date" id="tripdate" name="traveldate" value="">
-            <label for="end-date">Enter return date</label>
-            <input type="date" id="end-date" name="travel-end-date" value="">
-            <input type="submit" value="submit" id="submit">
-        </form>
-        <div class="display">
-            <p id="weather"></p>
-            <p id="triplength"></p>
-        </div>
-        <div>
-            <img src="" alt="" id="image">
+        <div id="app">
+            <div id=form>
+                <form>
+
+                    <label for="location">Enter your destination></label>
+                    <input type="text" id="location" name="destination" value="" placeholder="Enter your destination">
+                    <label for="tripdate">Enter travel date</label>
+                    <input type="date" id="tripdate" name="traveldate" value="">
+                    <label for="end-date">Enter return date</label>
+                    <input type="date" id="end-date" name="travel-end-date" value="">
+                    <input type="submit" value="submit" id="submit">
+                </form>
+            </div>
+            <div id="display">
+                <p id="weather"></p>
+                <p id="triplength"></p>
+            </div>
+            <div class="photo">
+                <img src="" alt="" id="image">
+            </div>
         </div>
     </main>
 </body>
