@@ -1,5 +1,6 @@
 // functions to handle ui changes
 function weatherUpdates(data, tripLength, location) {
+    console.log("this is the data ", data, triplength, location);
     const weather = document.getElementById('weather');
     const sunset = document.getElementById('sunset');
     const description = document.getElementById('weather-description');
