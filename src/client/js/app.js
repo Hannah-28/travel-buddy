@@ -4,6 +4,7 @@ const dateDiff = require("date-range-diff");
 // getting inputs
 async function submitBtn() {
     //recieving location data.
+    const tripHead = document.getElementById('trip-head').textContent = `Please wait, getting travel info...`
     const location = document.getElementById('location').value;
     const travelDate = document.getElementById('tripdate').value;
     const endDate = document.getElementById('end-date').value;
@@ -25,7 +26,7 @@ function travelDuration(travelDate, endDate) {
 
 //request Functions
 async function getWeatherInfo(location) {
-    const postData = await fetch("http://localhost:8080/postLocation", {
+    const postData = await fetch("http://localhost:3003/postLocation", {
         method: 'Post',
         credentials: 'same-origin',
         headers: {
