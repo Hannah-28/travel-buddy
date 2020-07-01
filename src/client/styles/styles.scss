@@ -66,3 +66,17 @@ header {
 #footer {
     height: 5vh;
 }
+
+@media(max-width:1200px) {
+    * {
+        text-align: center;
+    }
+    header {
+        font-size: 1rem;
+        height: 10vh;
+    }
+    #app {
+        display: flex;
+        flex-direction: column;
+    }
+}
