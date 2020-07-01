@@ -26,7 +26,7 @@ function travelDuration(travelDate, endDate) {
 
 //request Functions
 async function getWeatherInfo(location) {
-    const postData = await fetch("http://localhost:3003/postLocation", {
+    const postData = await fetch("http://localhost:6001/postLocation", {
         method: 'Post',
         credentials: 'same-origin',
         headers: {

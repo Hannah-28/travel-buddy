@@ -15,7 +15,7 @@ const fetch = require('node-fetch');
 let projectData = {}
 
 //server listening at port
-const port = 3003;
+const port = 6001;
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}!`)
 })
