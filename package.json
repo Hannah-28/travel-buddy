@@ -7,7 +7,7 @@
         "test-clean": "jest --clearCache",
         "start": "node src/server/server.js",
         "dev": "webpack-dev-server  --config webpack.dev.js --open",
-        "prod": "webpack --config webpack.prod.js && nodemon src/server/server.js"
+        "prod": "webpack --config webpack.prod.js"
     },
     "keywords": [],
     "author": "",

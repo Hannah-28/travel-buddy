@@ -17,8 +17,8 @@ header {
     max-height: 70vh;
     background-color: #faeee7;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: "left right";
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "left middle right";
     #overview {
         align-items: center;
         display: flex;
@@ -33,14 +33,11 @@ header {
         }
     }
     #travel-info {
-        visibility: hidden;
-        position: absolute;
         h2 {
             font-size: 2rem;
         }
     }
     #form {
-        // visibility: hidden;
         form {
             text-align: end;
             display: flex;

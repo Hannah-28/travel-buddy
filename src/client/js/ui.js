@@ -1,24 +1,16 @@
 // functions to handle ui changes
 function weatherUpdates(data, tripLength, location) {
-    console.log("this is the data ", data, triplength, location);
+    //getting values
+    console.log("this is the data ", data, tripLength, location);
     const weather = document.getElementById('weather');
     const sunset = document.getElementById('sunset');
     const description = document.getElementById('weather-description');
     const triplength = document.getElementById('triplength');
     const tripCation = document.getElementById('trip-caption')
+    const tripHead = document.getElementById('trip-head');
 
-    //visibiltity of travel-info
-    const travelInfo = document.getElementById('travel-info')
-    const form = document.getElementById('form')
-
-    travelInfo.setAttribute('visibility', 'visible');
-    travelInfo.setAttribute('position', 'static');
-    form.setAttribute('visibility', 'hidden');
-    form.setAttribute('position', 'absolute');
-    // weatherInfo.textContent = `Weather :
-    //     Temperature = ${data.data[0].temp}
-    //     Description = ${data.data[0].weather.description}
-    //     Sunset = ${data.data[0].sunset} `;
+    //populating ui with data
+    tripHead.textContent = `Travel Details for ${location}`
     tripCation.textContent = `${location}`
     triplength.textContent = `trip length : ${tripLength}`
     weather.textContent = `Typical temperature for then :${data.data[0].temp}°c`
